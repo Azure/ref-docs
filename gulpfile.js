@@ -22,8 +22,8 @@ gulp.task('java:stage', ['java:build'], function(){
 });
 
 /// Top level build entry point
-gulp.task('build', ['java:build']);
-gulp.task('publish', ['build'], function(){
+gulp.task('stage', ['java:staget']);
+gulp.task('publish', ['stage'], function(){
     return gulp.src('./dist/**/*').pipe(gulpif(!argv.dryrun, ghPages()));
 });
 
