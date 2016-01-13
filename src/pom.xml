@@ -1,0 +1,167 @@
+<!--
+ Copyright Microsoft Corporation
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>docs</artifactId>
+  <version>SDK</version>
+  <packaging>pom</packaging>
+
+  <name>Microsoft Azure Java</name>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>microsoft</id>
+      <name>Microsoft</name>
+    </developer>
+  </developers>
+  <modules>
+    <module>./azure-sdk</module>
+    <module>./documentdb</module>
+    <module>./notificationhubs/NotificationHubs</module>
+    <module>./storage</module>
+  </modules>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <configuration>
+            <aggregate>true</aggregate> <!-- this enables aggretation -->
+            <additionalparam>-Xdoclint:none</additionalparam>
+            <excludePackageNames>com.microsoft.azure.documentdb.test:com.microsoft.windowsazure.services.blob*:com.microsoft.windowsazure.services.queue*</excludePackageNames>
+            <groups>
+              <group>
+                <title>Azure DocumentDB</title>
+                <packages>com.microsoft.azure.documentdb*</packages>
+              </group>
+              <group>
+                <title>Azure Key Vault</title>
+                <packages>com.microsoft.azure.keyvault*</packages>
+              </group>
+              <group>
+                <title>Azure Compute Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.compute*</packages>
+              </group>
+              <group>
+                <title>Azure Network Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.network*</packages>
+              </group>
+              <group>
+                <title>Azure Resource Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.resources*:com.microsoft.azure.subscriptions*
+                </packages>
+              </group>
+              <group>
+                <title>Azure DNS Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.dns*</packages>
+              </group>
+              <group>
+                <title>Azure SQL Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.sql*</packages>
+              </group>
+              <group>
+                <title>Azure Storage Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.storage*</packages>
+              </group>
+              <group>
+                <title>Azure Traffic Manager Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.trafficmanager*</packages>
+              </group>
+              <group>
+                <title>Azure WebApps Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.websites*</packages>
+              </group>
+              <group>
+                <title>Azure Samples (Resource Manager)</title>
+                <packages>com.microsoft.azure.samples*</packages>
+              </group>
+              <group>
+                <title>Azure Utilities (Resource Manager)</title>
+                <packages>com.microsoft.azure.utility*</packages>
+              </group>
+              <group>
+                <title>Azure Storage</title>
+                <packages>com.microsoft.azure.storage*</packages>
+              </group>
+              <group>
+                <title>Azure Core Management (Service Management)</title>
+                <packages>
+                  com.microsoft.windowsazure:com.microsoft.windowsazure.tracing:com.microsoft.windowsazure.management.models:com.microsoft.windowsazure.management.configuration:com.microsoft.windowsazure.core*:com.microsoft.windowsazure.credentials:com.microsoft.windowsazure.exception:com.microsoft.windowsazure.management
+                </packages>
+              </group>
+              <group>
+                <title>Azure Compute Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.compute*</packages>
+              </group>
+              <group>
+                <title>Azure Network Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.network*</packages>
+              </group>
+              <group>
+                <title>Azure Storage Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.storage*</packages>
+              </group>
+              <group>
+                <title>Azure Media Services Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.mediaservices*</packages>
+              </group>
+              <group>
+                <title>Azure Scheduler Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.scheduler*</packages>
+              </group>
+              <group>
+                <title>Azure SQL Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.sql*</packages>
+              </group>
+              <group>
+                <title>Azure WebSites Management (Service Management)</title>
+                <packages>com.microsoft.windowsazure.management.websites*</packages>
+              </group>
+              <group>
+                <title>Azure Media Services</title>
+                <packages>com.microsoft.windowsazure.services.media*</packages>
+              </group>
+              <group>
+                <title>Azure Service Runtime</title>
+                <packages>com.microsoft.windowsazure.serviceruntime</packages>
+              </group>
+              <group>
+                <title>Azure Scheduler</title>
+                <packages>com.microsoft.windowsazure.scheduler*</packages>
+              </group>
+              <group>
+                <title>Azure ServiceBus</title>
+                <packages>com.microsoft.windowsazure.services.servicebus*</packages>
+              </group>
+              <group>
+                <title>Azure Notification Hubs</title>
+                <packages>com.windowsazure.messaging</packages>
+              </group>
+            </groups>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
