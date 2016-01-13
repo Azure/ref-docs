@@ -7,7 +7,7 @@ gulpif = require('gulp-if');
 
 /// Repo initialiazation, syncronization and cleanup
 gulp.task('sync', ['init'], shell.task('repo sync --no-tags -c'));
-gulp.task('init', shell.task('repo init -u https://github.com/devigned/azure-manifest'));
+gulp.task('init', shell.task('repo init -u https://github.com/azure/ref-docs'));
 gulp.task('clean', function(){
     return del(['./.repo', './azure', './dist', './.publish']);
 });
