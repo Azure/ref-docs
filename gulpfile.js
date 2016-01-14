@@ -24,7 +24,11 @@ gulp.task('java:stage', ['java:build'], function(){
 /// Top level build entry point
 gulp.task('stage', ['java:stage']);
 gulp.task('publish', ['stage'], function(){
-    return gulp.src('./dist/**/*').pipe(gulpif(!argv.dryrun, ghPages()));
+    var options = {};
+    if(process.env.GH_TOKEN){
+        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/azure/ref-docs.git'  
+    }
+    return gulp.src('./dist/**/*').pipe(gulpif(!argv.dryrun, ghPages(options)));
 });
 
 gulp.task('default', ['publish']);
