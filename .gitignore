@@ -25,7 +25,7 @@ azure_error
 
 # Builds #
 out/*
-tmp/*
+tmp/
 obj/
 out/
 checkstyle-result.xml
