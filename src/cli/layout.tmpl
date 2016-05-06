@@ -1,0 +1,28 @@
+## layout
+
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="./empty.css">
+</head>
+
+<body>
+  <div class='sidebar'>
+    <h1><a href="index.html">Azure CLI</a></h1>
+
+    <h2>General Commands</h2>
+    <ul>
+      <% _.each(data.commands, command => { %>
+        <li>
+          <a href='./commands/<%= command.name %>'>
+            <%= command.name %>
+          </a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+  <div class='main'>
+    <%= body %>
+  </div>
+</body>
+</html>
