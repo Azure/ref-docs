@@ -14,7 +14,7 @@
     <ul>
       <% _.each(data.commands, command => { %>
         <li>
-          <a href='./commands/<%= command.name %>'>
+          <a href='<%= pathFromName(command.name) %>'>
             <%= command.name %>
           </a>
         </li>

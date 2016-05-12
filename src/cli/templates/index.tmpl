@@ -3,7 +3,7 @@
 <ul>
   <% _.each(data, category => { %>
     <li>
-      <a href='./category/<%= category.name %>'>
+      <a href='<%= pathFromName(category.name) %>/'>
         <%= category.name %>
       </a>
     </li>

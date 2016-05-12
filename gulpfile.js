@@ -5,9 +5,7 @@ ghPages = require('gulp-gh-pages'),
 argv = require('yargs').argv,
 gulpif = require('gulp-if'),
 path = require('path'),
-fs = require('fs'),
-_ = require('underscore'),
-partials = require('node-partials');
+gulpCliDocs = require('./src/cli/tasks/gen-cli');
 
 
 /// Repo initialiazation, syncronization and cleanup
@@ -28,29 +26,12 @@ gulp.task('java:stage', ['java:build'], () => {
 
 // Azure CLI generation and publication
 let cliRoot = './azure/cli/azure-cli';
-let templatePath = './src/cli';
-
 gulp.task('cli:npm:install', ['sync'], shell.task('npm install', {cwd: cliRoot}))
 gulp.task('cli:telemetry:off', ['cli:npm:install'], shell.task(`[ -d ${process.env.HOME}/.azure ] || mkdir ${process.env.HOME}/.azure && echo '{"telemetry":false}' > ${process.env.HOME}/.azure/telemetry.json`, {cwd: cliRoot}))
 gulp.task('cli:config:arm', ['cli:telemetry:off'], shell.task('node ./bin/azure config set mode arm', {cwd: cliRoot}));
 gulp.task('cli:generate:help', ['cli:config:arm'], shell.task('node ./bin/azure help --json > help.json', {cwd: cliRoot}));
-gulp.task('cli:build', ['cli:generate:help'], (cb) => {
-  partials = new partials({
-      templatePath: templatePath,
-      delimiter: '## ',
-      validFileTypes: ['tmpl'],
-      commentStartDelimiter: '!##',
-      commentEndDelimiter: '##!',
-
-  });
-  let templates = partials.getCompiledTemplates();
-
-  fs.readFile(`${cliRoot}/help.json`, (err, data) =>{
-    var help = JSON.parse(data);
-    console.log(templates['layout/layout']({data: help, body: templates['index/index']({data: help.categories})}));
-    console.log(help);
-  });
-});
+gulp.task('cli:build', [], gulpCliDocs);
+// 'cli:generate:help'
 
 /// Top level build entry point
 gulp.task('stage', ['java:stage']);
