@@ -30,8 +30,7 @@ gulp.task('cli:npm:install', ['sync'], shell.task('npm install', {cwd: cliRoot})
 gulp.task('cli:telemetry:off', ['cli:npm:install'], shell.task(`[ -d ${process.env.HOME}/.azure ] || mkdir ${process.env.HOME}/.azure && echo '{"telemetry":false}' > ${process.env.HOME}/.azure/telemetry.json`, {cwd: cliRoot}))
 gulp.task('cli:config:arm', ['cli:telemetry:off'], shell.task('node ./bin/azure config set mode arm', {cwd: cliRoot}));
 gulp.task('cli:generate:help', ['cli:config:arm'], shell.task('node ./bin/azure help --json > help.json', {cwd: cliRoot}));
-gulp.task('cli:build', [], gulpCliDocs);
-// 'cli:generate:help'
+gulp.task('cli:build', ['cli:generate:help'], gulpCliDocs);
 
 /// Top level build entry point
 gulp.task('stage', ['java:stage']);
