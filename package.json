@@ -9,6 +9,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {},
+  "engines" : { "node" : "^6" },
   "devDependencies": {
     "del": "^2.2.0",
     "fs-extra": "^0.30.0",
