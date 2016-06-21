@@ -10,6 +10,7 @@ com.microsoft.azure.documentdb
 com.microsoft.azure.management.compute
 com.microsoft.azure.management.compute.implementation
 com.microsoft.azure.management.compute.implementation.api
+com.microsoft.azure.management.compute.samples
 com.microsoft.azure.management.datalake.analytics
 com.microsoft.azure.management.datalake.analytics.implementation
 com.microsoft.azure.management.datalake.analytics.models
@@ -20,9 +21,11 @@ com.microsoft.azure.management.datalake.store.uploader
 com.microsoft.azure.management.network
 com.microsoft.azure.management.network.implementation
 com.microsoft.azure.management.network.implementation.api
+com.microsoft.azure.management.network.samples
 com.microsoft.azure.management.resources
 com.microsoft.azure.management.resources.fluentcore.arm
 com.microsoft.azure.management.resources.fluentcore.arm.collection
+com.microsoft.azure.management.resources.fluentcore.arm.collection.implementation
 com.microsoft.azure.management.resources.fluentcore.arm.implementation
 com.microsoft.azure.management.resources.fluentcore.arm.models
 com.microsoft.azure.management.resources.fluentcore.arm.models.implementation
@@ -32,9 +35,12 @@ com.microsoft.azure.management.resources.fluentcore.model.implementation
 com.microsoft.azure.management.resources.fluentcore.utils
 com.microsoft.azure.management.resources.implementation
 com.microsoft.azure.management.resources.implementation.api
+com.microsoft.azure.management.resources.samples
+com.microsoft.azure.management.samples
 com.microsoft.azure.management.storage
 com.microsoft.azure.management.storage.implementation
 com.microsoft.azure.management.storage.implementation.api
+com.microsoft.azure.management.storage.samples
 com.microsoft.azure.management.website
 com.microsoft.azure.management.website.implementation
 com.microsoft.azure.management.website.implementation.api
