@@ -7,6 +7,15 @@ com.microsoft.azure.batch.protocol.implementation
 com.microsoft.azure.batch.protocol.models
 com.microsoft.azure.credentials
 com.microsoft.azure.documentdb
+com.microsoft.azure.keyvault
+com.microsoft.azure.keyvault.authentication
+com.microsoft.azure.keyvault.core
+com.microsoft.azure.keyvault.cryptography
+com.microsoft.azure.keyvault.cryptography.algorithms
+com.microsoft.azure.keyvault.extensions
+com.microsoft.azure.keyvault.models
+com.microsoft.azure.keyvault.requests
+com.microsoft.azure.keyvault.webkey
 com.microsoft.azure.management.compute
 com.microsoft.azure.management.compute.implementation
 com.microsoft.azure.management.compute.samples
