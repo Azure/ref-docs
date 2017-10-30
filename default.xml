@@ -5,7 +5,8 @@
     <default revision="master" remote="azure" />
 
     <!-- Java projects -->
-    <project name="azure-sdk-for-java" path="azure/java/azure-sdk" groups="java" />
+    <project name="azure-sdk-for-java" path="azure/java/azure-sdk-legacy" groups="java" revision="0.9" />
+    <project name="azure-sdk-for-java" path="azure/java/azure-sdk" groups="java" revision="v1.0.0-beta3" />
     <project name="azure-storage-java" path="azure/java/storage" groups="java" />
     <project name="azure-documentdb-java" path="azure/java/documentdb" groups="java" />
     <project name="azure-notificationhubs-java-backend" path="azure/java/notificationhubs" groups="java" />
@@ -23,7 +24,7 @@
     <!-- CLI projects -->
     <project name="azure-xplat-cli" path="azure/cli/azure-cli" groups="cli" />
 
-    <!-- Docs generation project 
+    <!-- Docs generation project
     <project name="azure-docs" remote="devigned" path="azure-docs" groups="docs" />
     -->
   </manifest>
