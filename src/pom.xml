@@ -67,61 +67,87 @@
                 <title>Azure Batch</title>
                 <packages>com.microsoft.azure.batch*</packages>
               </group>
+              <!-- Management SDK -->
               <group>
-                <title>Azure Compute Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.compute*</packages>
-              </group>
-              <group>
-                <title>Azure Network Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.network*</packages>
-              </group>
-              <group>
-                <title>Azure Resource Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.resources*:com.microsoft.azure.subscriptions*</packages>
-              </group>
-              <group>
-                <title>Azure Storage Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.storage*</packages>
-              </group>
-              <group>
-                <title>Azure Key Vault Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.keyvault*</packages>
+                <title>Azure Appservice Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.appservice*</packages>
               </group>
               <group>
                 <title>Azure Batch Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.batch*</packages>
               </group>
               <group>
-                <title>Azure Redis Cache Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.redis*</packages>
+                <title>Azure CDN Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.cdn*</packages>
+              </group>
+              <group>
+                <title>Azure Compute Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.compute*</packages>
+              </group>
+              <group>
+                <title>Azure Container Instance Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.containerinstance*</packages>
+              </group>
+              <group>
+                <title>Azure Container Registry Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.containerregistry*</packages>
+              </group>
+              <group>
+                <title>Azure Cosmos DB Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.cosmosdb*</packages>
               </group>
               <group>
                 <title>Azure DNS Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.dns*</packages>
               </group>
               <group>
+                <title>Azure Graph RBAC Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.graphrbac*</packages>
+              </group>
+              <group>
+                <title>Azure Key Vault Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.keyvault*</packages>
+              </group>
+              <group>
+                <title>Azure Network Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.network*</packages>
+              </group>
+              <group>
+                <title>Azure Redis Cache Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.redis*</packages>
+              </group>
+              <group>
+                <title>Azure Resource Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.resources*:com.microsoft.azure.subscriptions*</packages>
+              </group>
+              <group>
+                <title>Azure Search Service Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.search*</packages>
+              </group>
+              <group>
+                <title>Azure Service Bus Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.servicebus*</packages>
+              </group>
+              <group>
                 <title>Azure SQL Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.sql*</packages>
               </group>
               <group>
-                <title>Azure Datalake Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.datalake*</packages>
+                <title>Azure Storage Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.storage*</packages>
               </group>
               <group>
                 <title>Azure Traffic Manager Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.trafficmanager*</packages>
               </group>
               <group>
-                <title>Azure Graph RBAC Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.graphrbac*</packages>
-              </group>
-              <group>
-                <title>Azure WebApps Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.website*</packages>
-              </group>
-              <group>
                 <title>Azure Roll-up Client (Resource Manager)</title>
                 <packages>com.microsoft.azure.management*</packages>
+              </group>
+              <!-- End of supported management SDK-->
+              <group>
+                <title>Azure Datalake Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.datalake*</packages>
               </group>
               <group>
                 <title>Azure SDK Client Runtimes</title>
