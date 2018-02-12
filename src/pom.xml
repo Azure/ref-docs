@@ -47,7 +47,7 @@
     <pluginManagement>
       <plugins>
         <plugin>
-		  <groupId>org.apache.maven.plugins</groupId>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>2.8</version>
           <configuration>
@@ -77,6 +77,10 @@
                 <packages>com.microsoft.azure.management.batch*</packages>
               </group>
               <group>
+                <title>Azure BatchAI Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.batchai*</packages>
+              </group>
+              <group>
                 <title>Azure CDN Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.cdn*</packages>
               </group>
@@ -93,6 +97,10 @@
                 <packages>com.microsoft.azure.management.containerregistry*</packages>
               </group>
               <group>
+                <title>Azure Container Service Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.containerservice*</packages>
+              </group>
+              <group>
                 <title>Azure Cosmos DB Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.cosmosdb*</packages>
               </group>
@@ -107,6 +115,18 @@
               <group>
                 <title>Azure Key Vault Management (Resource Manager)</title>
                 <packages>com.microsoft.azure.management.keyvault*</packages>
+              </group>
+              <group>
+                <title>Azure Locks Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.locks*</packages>
+              </group>
+              <group>
+                <title>Azure Monitor Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.monitor*</packages>
+              </group>
+              <group>
+                <title>Azure Managed Service Identity (MSI) Management (Resource Manager)</title>
+                <packages>com.microsoft.azure.management.msi*</packages>
               </group>
               <group>
                 <title>Azure Network Management (Resource Manager)</title>
