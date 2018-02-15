@@ -12,8 +12,11 @@ gulp.task('clean', function(){
     return del(['./.repo', './azure', './dist', './.publish']);
 });
 
+// Pull doc db private repo
+gulp.task('docdb', ['sync'], shell.task('git clone https://' + process.env.GH_TOKEN + ':x-oauth-basic@github.com/azure/azure-documentdb-java-pr.git documentdb', {cwd: './azure/java'}));
+
 /// Javadoc generation and publication
-gulp.task('java:pom', ['sync'], function(){
+gulp.task('java:pom', ['docdb'], function(){
    return gulp.src('./src/pom.xml').pipe(gulp.dest('./azure/java')); 
 });
 gulp.task('java:build', ['java:pom'], shell.task('mvn package javadoc:aggregate -DskipTests=true -q', {cwd: './azure/java'}));
