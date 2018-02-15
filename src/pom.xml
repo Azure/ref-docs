@@ -165,7 +165,7 @@
               </group>
               <group>
                 <title>Azure Roll-up Client (Resource Manager)</title>
-                <packages>com.microsoft.azure.management*</packages>
+                <packages>com.microsoft.azure.management</packages>
               </group>
               <!-- End of supported management SDK-->
               <group>
