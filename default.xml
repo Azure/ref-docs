@@ -10,7 +10,7 @@
     <project name="azure-libraries-for-java" path="azure/java/azure-sdk" groups="java" />
     <project name="azure-storage-java" path="azure/java/storage" groups="java" />
     <project name="azure-notificationhubs-java-backend" path="azure/java/notificationhubs" groups="java" />
-    <project name="azure-documentdb-java" path="azure/java/documentdb" groups="java" />
+    <project name="azure-documentdb-java-pr" path="azure/java/documentdb" groups="java" />
     <project name="azure-batch-sdk-for-java" path="azure/java/batch" groups="java" />
 
     <!-- Ruby projects -->
