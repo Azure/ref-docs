@@ -12,8 +12,9 @@ gulp.task('docdb', function () {
     exec('mkdir -p ./azure/java', { cwd: '.'}, function(err, stdout, stderr) {
     	exec('git clone https://' + process.env.GH_TOKEN + ':x-oauth-basic@github.com/azure/azure-documentdb-java-pr.git documentdb', { cwd: './azure/java'}, function(err, stdout, stderr) {
     		exec('git checkout -b 1.15.0 1.15.0', { cwd: './azure/java/documentdb'});
+		});
 	});
-});
+});	
 
 /// Repo initialiazation, syncronization and cleanup
 gulp.task('init', ['docdb'], shell.task('repo init -u https://github.com/azure/ref-docs'));
