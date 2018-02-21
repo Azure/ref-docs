@@ -19,7 +19,7 @@ gulp.task('init', ['docdb'], shell.task('repo init -u https://github.com/azure/r
 gulp.task('clean', function(){
     return del(['./.repo', './azure', './dist', './.publish']);
 });
-gulp.task('sync', ['init'], shell.task('repo sync --no-tags -c'));
+gulp.task('sync', ['init'], shell.task('repo sync'));
 
 /// Javadoc generation and publication
 gulp.task('java:pom', ['sync'], function(){
