@@ -17,7 +17,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>docs</artifactId>
-  <version>1.6</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
 
   <name>Microsoft Azure Libraries for Java</name>
@@ -37,12 +37,10 @@
   </developers>
   <modules>
     <module>./runtimes</module>
-    <module>./azure-sdk</module>
-    <module>./azure-sdk-legacy</module>
     <module>./documentdb/DocumentDB</module>
-    <module>./notificationhubs/NotificationHubs</module>
     <module>./storage</module>
     <module>./batch</module>
+    <module>./azure-sdk</module>
   </modules>
   <build>
     <pluginManagement>
@@ -75,7 +73,7 @@
                 <packages>com.microsoft.azure.batch*</packages>
               </group>
               <group>
-                <title>Azure Datalake Management (Resource Manager)</title>
+                <title>Azure Datalake Management</title>
                 <packages>com.microsoft.azure.management.datalake*</packages>
               </group>
               <group>
@@ -85,60 +83,6 @@
               <group>
                 <title>Azure SDK Client Runtimes</title>
                 <packages>com.microsoft.azure.rest*:com.microsoft.azure*:com.microsoft.rest*</packages>
-              </group>
-              <group>
-                <title>Azure Core Management (Service Management)</title>
-                <packages>
-                  com.microsoft.windowsazure:com.microsoft.windowsazure.tracing:com.microsoft.windowsazure.management.models:com.microsoft.windowsazure.management.configuration:com.microsoft.windowsazure.core*:com.microsoft.windowsazure.credentials:com.microsoft.windowsazure.exception:com.microsoft.windowsazure.management
-                </packages>
-              </group>
-              <group>
-                <title>Azure Compute Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.compute*</packages>
-              </group>
-              <group>
-                <title>Azure Network Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.network*</packages>
-              </group>
-              <group>
-                <title>Azure Storage Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.storage*</packages>
-              </group>
-              <group>
-                <title>Azure Media Services Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.mediaservices*</packages>
-              </group>
-              <group>
-                <title>Azure Scheduler Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.scheduler*</packages>
-              </group>
-              <group>
-                <title>Azure SQL Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.sql*</packages>
-              </group>
-              <group>
-                <title>Azure WebSites Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.websites*</packages>
-              </group>
-              <group>
-                <title>Azure Media Services</title>
-                <packages>com.microsoft.windowsazure.services.media*</packages>
-              </group>
-              <group>
-                <title>Azure Service Runtime</title>
-                <packages>com.microsoft.windowsazure.serviceruntime</packages>
-              </group>
-              <group>
-                <title>Azure Scheduler</title>
-                <packages>com.microsoft.windowsazure.scheduler*</packages>
-              </group>
-              <group>
-                <title>Azure ServiceBus</title>
-                <packages>com.microsoft.windowsazure.services.servicebus*</packages>
-              </group>
-              <group>
-                <title>Azure Notification Hubs</title>
-                <packages>com.windowsazure.messaging</packages>
               </group>
             </groups>            
           </configuration>
