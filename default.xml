@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <manifest>
     <remote name="azure" fetch="git://github.com/azure/"/>
-    <remote name="devigned" fetch="git://github.com/devigned/"/>
     <default revision="master" remote="azure" />
 
     <!-- Java projects -->
-    <project name="autorest-clientruntime-for-java" path="azure/java/runtimes" groups="java"/>
+    <project name="autorest-clientruntime-for-java" path="azure/java/runtimes" groups="java" revision="refs/tags/v1.3.0"/>
+    <project name="azure-libraries-for-java" path="azure/java/azure-sdk" groups="java" revision="refs/tags/v1.6.0"/>
+    <project name="azure-storage-java" path="azure/java/storage" groups="java" revision="refs/tags/v6.1.0"/>
+    <project name="azure-batch-sdk-for-java" path="azure/java/batch" groups="java" revision="refs/tags/v3.0.0"/>
+
+    <!-- Legacy Java projects not supported anymore -->
+    <!--
     <project name="azure-sdk-for-java" path="azure/java/azure-sdk-legacy" groups="java" revision="0.9" />
-    <project name="azure-libraries-for-java" path="azure/java/azure-sdk" groups="java" />
-    <project name="azure-storage-java" path="azure/java/storage" groups="java" />
-    <project name="azure-documentdb-java" path="azure/java/documentdb" groups="java" />
     <project name="azure-notificationhubs-java-backend" path="azure/java/notificationhubs" groups="java" />
-
-    <!-- Ruby projects -->
-    <project name="azure-sdk-for-ruby" path="azure/ruby/azure-sdk" groups="ruby" />
-
-    <!-- Nodejs projects -->
-    <project name="azure-sdk-for-node" path="azure/node/azure-sdk" groups="node" />
-    <project name="azure-mobile-apps-node" path="azure/node/mobile-apps" groups="node" />
-    <project name="azure-storage-node" path="azure/node/storage" groups="node" />
-    <project name="azure-documentdb-node" path="azure/node/documentdb" groups="node" />
-    <project name="node-sqlserver" path="azure/node/sqlserver" groups="node" />
-
-    <!-- CLI projects -->
-    <project name="azure-xplat-cli" path="azure/cli/azure-cli" groups="cli" />
-
-    <!-- Docs generation project
-    <project name="azure-docs" remote="devigned" path="azure-docs" groups="docs" />
     -->
+    <!-- DocumentDB is in the private repo and is synced through gulpfile -->
+    <!-- <project name="azure-documentdb-java-pr" path="azure/java/documentdb" groups="java" /> -->
   </manifest>

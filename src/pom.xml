@@ -17,10 +17,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>docs</artifactId>
-  <version>SDK</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
 
-  <name>Microsoft Azure Java</name>
+  <name>Microsoft Azure Libraries for Java</name>
 
   <licenses>
     <license>
@@ -37,11 +37,10 @@
   </developers>
   <modules>
     <module>./runtimes</module>
-    <module>./azure-sdk</module>
-    <module>./azure-sdk-legacy</module>
-    <module>./documentdb</module>
-    <module>./notificationhubs/NotificationHubs</module>
+    <module>./documentdb/DocumentDB</module>
     <module>./storage</module>
+    <module>./batch</module>
+    <module>./azure-sdk</module>
   </modules>
   <build>
     <pluginManagement>
@@ -49,12 +48,20 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.8</version>
+          <version>3.0.0</version>
           <configuration>
-            <aggregate>true</aggregate> <!-- this enables aggretation -->
+            <doctitle>Microsoft Azure Libraries for Java</doctitle>
+            <windowtitle>Microsoft Azure Libraries for Java</windowtitle>            
             <additionalparam>-Xdoclint:none</additionalparam>
-            <excludePackageNames>com.microsoft.azure.management.search*;*.samples;*.implementation.*;*.utils.*;com.microsoft.schemas._2003._10.serialization;*.blob.core.storage;com.microsoft.azure.documentdb.test;com.microsoft.windowsazure.services.blob*;com.microsoft.windowsazure.services.queue*</excludePackageNames>
+            <excludePackageNames>*.samples;*.implementation.*;*.utils.*;com.microsoft.schemas._2003._10.serialization;*.blob.core.storage;com.microsoft.azure.documentdb.test;com.microsoft.windowsazure.services.blob*;com.microsoft.windowsazure.services.queue*;com.microsoft.azure.utility;com.microsoft.azure.management.gallery;*.management.billing;*.management.cognitiveservices;*.management.consumption;*.management.customerinsights;*.management.devices;*.management.devtestlab;*.management.eventhub;*.management.insights;*.management.logic;*.management.machinelearning;*.management.notificationhubs;*.management.powerbi;*.management.recoveryservices;*.management.relay;*.management.scheduler;*.management.servicefabric;*.management.streamanalytics</excludePackageNames>
+            <sourceFileExcludes>
+              <sourceFileExclude>JAXBDebug.*</sourceFileExclude>
+            </sourceFileExcludes>            
             <groups>
+              <group>
+                <title>Azure Management Libraries</title>
+                <packages>com.microsoft.azure.management*:com.microsoft.azure.subscriptions*</packages>
+              </group>
               <group>
                 <title>Azure DocumentDB</title>
                 <packages>com.microsoft.azure.documentdb*</packages>
@@ -67,173 +74,44 @@
                 <title>Azure Batch</title>
                 <packages>com.microsoft.azure.batch*</packages>
               </group>
-              <!-- Management SDK -->
               <group>
-                <title>Azure Appservice Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.appservice*</packages>
-              </group>
-              <group>
-                <title>Azure Batch Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.batch*</packages>
-              </group>
-              <group>
-                <title>Azure BatchAI Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.batchai*</packages>
-              </group>
-              <group>
-                <title>Azure CDN Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.cdn*</packages>
-              </group>
-              <group>
-                <title>Azure Compute Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.compute*</packages>
-              </group>
-              <group>
-                <title>Azure Container Instance Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.containerinstance*</packages>
-              </group>
-              <group>
-                <title>Azure Container Registry Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.containerregistry*</packages>
-              </group>
-              <group>
-                <title>Azure Container Service Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.containerservice*</packages>
-              </group>
-              <group>
-                <title>Azure Cosmos DB Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.cosmosdb*</packages>
-              </group>
-              <group>
-                <title>Azure DNS Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.dns*</packages>
-              </group>
-              <group>
-                <title>Azure Graph RBAC Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.graphrbac*</packages>
-              </group>
-              <group>
-                <title>Azure Key Vault Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.keyvault*</packages>
-              </group>
-              <group>
-                <title>Azure Locks Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.locks*</packages>
-              </group>
-              <group>
-                <title>Azure Monitor Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.monitor*</packages>
-              </group>
-              <group>
-                <title>Azure Managed Service Identity (MSI) Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.msi*</packages>
-              </group>
-              <group>
-                <title>Azure Network Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.network*</packages>
-              </group>
-              <group>
-                <title>Azure Redis Cache Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.redis*</packages>
-              </group>
-              <group>
-                <title>Azure Resource Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.resources*:com.microsoft.azure.subscriptions*</packages>
-              </group>
-              <group>
-                <title>Azure Search Service Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.search*</packages>
-              </group>
-              <group>
-                <title>Azure Service Bus Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.servicebus*</packages>
-              </group>
-              <group>
-                <title>Azure SQL Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.sql*</packages>
-              </group>
-              <group>
-                <title>Azure Storage Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.storage*</packages>
-              </group>
-              <group>
-                <title>Azure Traffic Manager Management (Resource Manager)</title>
-                <packages>com.microsoft.azure.management.trafficmanager*</packages>
-              </group>
-              <group>
-                <title>Azure Roll-up Client (Resource Manager)</title>
-                <packages>com.microsoft.azure.management*</packages>
-              </group>
-              <!-- End of supported management SDK-->
-              <group>
-                <title>Azure Datalake Management (Resource Manager)</title>
+                <title>Azure Datalake Management</title>
                 <packages>com.microsoft.azure.management.datalake*</packages>
-              </group>
-              <group>
-                <title>Azure SDK Client Runtimes</title>
-                <packages>com.microsoft.azure.rest*:com.microsoft.azure*</packages>
               </group>
               <group>
                 <title>Azure Storage</title>
                 <packages>com.microsoft.azure.storage*</packages>
               </group>
               <group>
-                <title>Azure Core Management (Service Management)</title>
-                <packages>
-                  com.microsoft.windowsazure:com.microsoft.windowsazure.tracing:com.microsoft.windowsazure.management.models:com.microsoft.windowsazure.management.configuration:com.microsoft.windowsazure.core*:com.microsoft.windowsazure.credentials:com.microsoft.windowsazure.exception:com.microsoft.windowsazure.management
-                </packages>
+                <title>Azure SDK Client Runtimes</title>
+                <packages>com.microsoft.azure.rest*:com.microsoft.azure*:com.microsoft.rest*</packages>
               </group>
-              <group>
-                <title>Azure Compute Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.compute*</packages>
-              </group>
-              <group>
-                <title>Azure Network Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.network*</packages>
-              </group>
-              <group>
-                <title>Azure Storage Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.storage*</packages>
-              </group>
-              <group>
-                <title>Azure Media Services Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.mediaservices*</packages>
-              </group>
-              <group>
-                <title>Azure Scheduler Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.scheduler*</packages>
-              </group>
-              <group>
-                <title>Azure SQL Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.sql*</packages>
-              </group>
-              <group>
-                <title>Azure WebSites Management (Service Management)</title>
-                <packages>com.microsoft.windowsazure.management.websites*</packages>
-              </group>
-              <group>
-                <title>Azure Media Services</title>
-                <packages>com.microsoft.windowsazure.services.media*</packages>
-              </group>
-              <group>
-                <title>Azure Service Runtime</title>
-                <packages>com.microsoft.windowsazure.serviceruntime</packages>
-              </group>
-              <group>
-                <title>Azure Scheduler</title>
-                <packages>com.microsoft.windowsazure.scheduler*</packages>
-              </group>
-              <group>
-                <title>Azure ServiceBus</title>
-                <packages>com.microsoft.windowsazure.services.servicebus*</packages>
-              </group>
-              <group>
-                <title>Azure Notification Hubs</title>
-                <packages>com.windowsazure.messaging</packages>
-              </group>
-            </groups>
+            </groups>            
           </configuration>
+          <executions>
+            <execution>
+              <id>aggregate</id>
+              <goals>
+                <goal>aggregate</goal>
+              </goals>
+              <phase>site</phase>
+              <configuration>
+                <!-- Specific configuration for the aggregate report -->
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+            <excludes>
+              <exclude>**/JAXBDebug.java</exclude>
+              <exclude>**/*test/*</exclude>
+            </excludes>
+        </configuration>
+      </plugin>
       </plugins>
     </pluginManagement>
   </build>
