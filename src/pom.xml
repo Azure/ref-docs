@@ -50,6 +50,8 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>3.0.0</version>
           <configuration>
+            <doctitle>Microsoft Azure Libraries for Java</doctitle>
+            <windowtitle>Microsoft Azure Libraries for Java</windowtitle>            
             <additionalparam>-Xdoclint:none</additionalparam>
             <excludePackageNames>*.samples;*.implementation.*;*.utils.*;com.microsoft.schemas._2003._10.serialization;*.blob.core.storage;com.microsoft.azure.documentdb.test;com.microsoft.windowsazure.services.blob*;com.microsoft.windowsazure.services.queue*;com.microsoft.azure.utility;com.microsoft.azure.management.gallery;*.management.billing;*.management.cognitiveservices;*.management.consumption;*.management.customerinsights;*.management.devices;*.management.devtestlab;*.management.eventhub;*.management.insights;*.management.logic;*.management.machinelearning;*.management.notificationhubs;*.management.powerbi;*.management.recoveryservices;*.management.relay;*.management.scheduler;*.management.servicefabric;*.management.streamanalytics</excludePackageNames>
             <sourceFileExcludes>
