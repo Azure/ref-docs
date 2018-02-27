@@ -61,7 +61,7 @@ in node_modules/gift/lib/commit.js file change the method to this:
       if(ref1 !== undefined && ref1 !== null && ref1.length > 0) {
         m = ref1[0], actor = ref1[1], epoch = ref1[2];
       } else {
-        actor="Hovsep Mkrtchyan <hovsepm@microsoft.com>"; (your github user)
+        actor="..."; (your github user. e.g. User Muser <user@organization.com>)
         epoch="1518471247"; (magic number)
       }
       return [Actor.from_string(actor), new Date(1000 * +epoch)];
