@@ -53,8 +53,7 @@ in the same cmd window build and publish java docs:
 2. `cd ref-docs`
 3. `npm install`
 
-*** manual fix requred here due to historical issue in the gh-pages branch ***
-in node_modules/gift/lib/commit.js file change the method to this:
+***manual fix requred here due to historical issue in the gh-pages branch. In node_modules/gift/lib/commit.js file change the method to this***
 ```
    Commit.actor = function(line) {
       var actor, epoch, m, ref1;
