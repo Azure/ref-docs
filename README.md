@@ -52,6 +52,7 @@ in the same cmd window build and publish java docs:
 1. `git clone https://github.com/Azure/ref-docs.git`
 2. `cd ref-docs`
 3. `npm install`
+
 *** manual fix requred here due to historical issue in the gh-pages branch ***
 in node_modules/gift/lib/commit.js file change the method to this:
 ```
@@ -67,4 +68,5 @@ in node_modules/gift/lib/commit.js file change the method to this:
       return [Actor.from_string(actor), new Date(1000 * +epoch)];
     };
 ```
+
 4. `gulp publish`
