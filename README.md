@@ -16,8 +16,8 @@ The project expects the collection of repos to be setup with `repo init -u https
 *Note: update default.xml in this repo to reflect correct release tags for each library. Since Documnt DB is still in the private repo their tag shouldbe updated in the gulpfile.js
 
 In PowerShell
-1. `docker pull picoded/ubuntu-openjdk-8-jdk`
-2. `docker create -it picoded/ubuntu-openjdk-8-jdk /bin/bash`
+1. create a docker image using the Dockerfile in the root folder.
+2. create a docker container form that image `docker create -it <IMAGE_NAME>`
 3. `docker container ls -a`
 ```
  CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS              PORTS               NAMES
@@ -27,19 +27,8 @@ In PowerShell
 
 then open a cmd 
 1. `docker attach 40243faa06a1`
-2. `sudo apt-get -y update`
-3. `sudo apt-get -y install maven`
-4. `sudo apt-get -y install git`
-5. `sudo apt-get -y install nodejs`
-6. `sudo apt-get -y install npm`
-7. `sudo apt-get -y install vim`
-8. `sudo apt-get -y update`
-9. `mkdir ~/bin`
-10. `export PATH=~/bin:$PATH`
-11. `curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo`
-12. `chmod a+x ~/bin/repo`
-13. `export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'`
-14. `npm install --global gulp-cli`
+2. `export PATH=~/bin:$PATH`
+3. `export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'`
 
 in the same cmd window configure env variables: 
 1. `export GH_TOKEN=...` (put here [github public access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) without any quotes)
