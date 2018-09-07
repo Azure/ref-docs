@@ -37,7 +37,6 @@
   </developers>
   <modules>
     <module>./runtimes</module>
-    <module>./documentdb/DocumentDB</module>
     <module>./storage</module>
     <module>./batch</module>
     <module>./azure-sdk</module>
