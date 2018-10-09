@@ -37,9 +37,8 @@
   </developers>
   <modules>
     <module>./runtimes</module>
-    <module>./storage</module>
-    <module>./batch</module>
     <module>./azure-sdk</module>
+    <module>./azure-libraries</module>
   </modules>
   <build>
     <pluginManagement>
@@ -58,10 +57,14 @@
             </sourceFileExcludes>            
             <groups>
               <group>
-                <title>Azure Management Libraries</title>
+                <title>Azure Management Libraries v1.x</title>
                 <packages>com.microsoft.azure.management*:com.microsoft.azure.subscriptions*</packages>
               </group>
               <group>
+                <title>Azure Management Libraries v2.x</title>
+                <packages>com.microsoft.azure.v2.management*:com.microsoft.azure.v2.subscriptions*</packages>
+              </group>
+              <!-- <group>
                 <title>Azure DocumentDB</title>
                 <packages>com.microsoft.azure.documentdb*</packages>
               </group>
@@ -80,12 +83,12 @@
               <group>
                 <title>Azure Storage</title>
                 <packages>com.microsoft.azure.storage*</packages>
-              </group>
+              </group> -->
               <group>
                 <title>Azure SDK Client Runtimes</title>
                 <packages>com.microsoft.azure.rest*:com.microsoft.azure*:com.microsoft.rest*</packages>
               </group>
-            </groups>            
+            </groups>
           </configuration>
           <executions>
             <execution>
