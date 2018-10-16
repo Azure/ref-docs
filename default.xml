@@ -6,8 +6,7 @@
     <!-- Java projects -->
     <project name="autorest-clientruntime-for-java" path="azure/java/runtimes" groups="java" revision="refs/tags/v1.3.0"/>
     <project name="azure-libraries-for-java" path="azure/java/azure-sdk" groups="java" revision="refs/tags/v1.15.0"/>
-    <project name="azure-storage-java" path="azure/java/storage" groups="java" revision="refs/tags/v6.1.0"/>
-    <project name="azure-batch-sdk-for-java" path="azure/java/batch" groups="java" revision="refs/tags/v3.0.0"/>
+    <project name="azure-libraries-for-java" path="azure/java/azure-libraries" groups="java" revision="2.x"/>
 
     <!-- Legacy Java projects not supported anymore -->
     <!--

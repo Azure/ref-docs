@@ -11,7 +11,7 @@ gulp.task('clean', function(){
 });
 
 /// Repo initialiazation, syncronization and cleanup
-gulp.task('init', shell.task('repo init -u https://github.com/azure/ref-docs'));
+gulp.task('init', shell.task('repo init -u https://github.com/hovsepm/ref-docs'));
 gulp.task('sync', ['init'], shell.task('repo sync --no-tags -c'));
 
 /// Javadoc generation and publication
@@ -28,7 +28,7 @@ gulp.task('stage', ['java:stage']);
 gulp.task('publish:ref-docs', ['stage'], function(){
     var options = {};
     if(process.env.GH_TOKEN){
-        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/azure/ref-docs.git'  
+        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/hovsepm/ref-docs.git'  
     }
     return gulp.src('./dist/**/*').pipe(gulpif(!argv.dryrun, ghPages(options)));
 });
@@ -36,7 +36,7 @@ gulp.task('publish:ref-docs', ['stage'], function(){
 gulp.task('publish:sdk', ['stage'], function(){
     var options = {};
     if(process.env.GH_TOKEN){
-        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/azure/azure-sdk-for-java.git'  
+        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/hovsepm/azure-sdk-for-java.git'  
     }
     return gulp.src('./dist/java/**/*').pipe(gulpif(!argv.dryrun, ghPages(options)));
 });
