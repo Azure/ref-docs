@@ -23,6 +23,8 @@ In PowerShell
  CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS              PORTS               NAMES
  40243faa06a1        picoded/ubuntu-openjdk-8-jdk   "/bin/bash"         3 months ago        Up 11 minutes                           gifted_pare
 ```
+  *Note: you can create container from the exisitng javadoc docker image `docker create -it azureclidev.azurecr.io/azuresdk-javadoc`
+
 4. `docker container start 40243faa06a1`
 
 then open a cmd 
