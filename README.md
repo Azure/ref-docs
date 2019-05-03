@@ -1,62 +1,100 @@
 # Azure Reference Documentation
+
 This repo generates and publishes documentation for azure repositories. It's currently in progress...
 
-The project expects the collection of repos to be setup with `repo init -u https://github.com/azure/ref-docs`. 
+The project expects the collection of repos to be setup with `repo init -u https://github.com/azure/ref-docs`.
 
-## Getting started
-- `git clone https://github.com/azure/ref-docs`
-- `npm install`
+## Required setup
 
-## Current Commands
-- `gulp --tasks # to see all of the tasks`
-- `gulp build # to build the dist directory`
-- etc... read the gulpfile
+- Make sure you have Docker installed
+  1. If you are having trouble running the docker command after installation, one problem could be that visualization is not enabled. If so, restart your computer and upon rebooting, [enter BIOS setup](https://www.makeuseof.com/tag/enter-bios-computer/) and enable visualization
+- Need access to this repo as a contributor.
+  1. Go to https://repos.opensource.microsoft.com/ 
+  2. Join https://repos.opensource.microsoft.com/teams?q=adx-sdk-team
+- Need access to the azureclidev.azurecr.io docker repo.
+  1. `az account set --subscription "Azure SDK Infrastructure"`
+  2. `az acr login --name azureclidev`
 
-## Publishing steps using docker image (on Windows)
-*Note: update default.xml in this repo to reflect correct release tags for each library. Since Documnt DB is still in the private repo their tag shouldbe updated in the gulpfile.js
+## Publishing steps using a docker image (on Windows)
+
+On the main Github ref-docs repo
+
+1. Make sure you update the version [here](https://github.com/Azure/ref-docs/blob/master/default.xml#L8) to your current release version
+  i. NOTE: this ***has*** to be done both on the main Github repo and locally
 
 In PowerShell
-1. create a docker image using the Dockerfile in the root folder.
-2. create a docker container form that image `docker create -it <IMAGE_NAME>`
-3. `docker container ls -a`
-```
- CONTAINER ID        IMAGE                                 COMMAND             CREATED             STATUS              PORTS               NAMES
- 40243faa06a1        picoded/ubuntu-openjdk-8-jdk   "/bin/bash"         3 months ago        Up 11 minutes                           gifted_pare
-```
-  *Note: you can create container from the exisitng javadoc docker image `docker create -it azureclidev.azurecr.io/azuresdk-javadoc`
 
-4. `docker container start 40243faa06a1`
+1. `docker create -t azureclidev.azurecr.io/azuresdk-javadoc`
+2. `docker container ls -a`
+3. From the previous command, get the container id that correspons to the javadoc image you just created.
 
-then open a cmd 
-1. `docker attach 40243faa06a1`
-2. `export PATH=~/bin:$PATH`
-3. `export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'`
+Then open a cmd terminal
 
-in the same cmd window configure env variables: 
-1. `export GH_TOKEN=...` (put here [github public access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) without any quotes)
-2. `git config --global user.email "..."` (your github user email e.g. user@organization.com)
-3. `git config --global user.name "..."` (your github user id e.g. user)
+1. `docker container start {container id you just copied}`
 
-*Note: github public access token needs to have access to private repo Azure/azure-documentdb-java-pr_
+Now you wil be in the docker image environment.
 
-in the same cmd window build and publish java docs:
-1. `git clone https://github.com/Azure/ref-docs.git`
-2. `cd ref-docs`
-3. `npm install`
+In the same cmd window configure these environment variables
 
-***manual fix requred here due to historical issue in the gh-pages branch. In node_modules/gift/lib/commit.js file change the method to this***
-```
-   Commit.actor = function(line) {
+1. `export PATH=~/bin:$PATH`
+2. `export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'`
+3. `export GH_TOKEN=...` (put your [Github public access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) here without any quotes. Make sure it has full repo access).
+
+Configure your git credentials and clone git in your docker environment
+
+1. `git config --global user.email "{your github user email e.g. user@organization.com}"`
+2. `git config --global user.name "{your github user id e.g. user}"`
+3. `git clone https://github.com/Azure/ref-docs.git`
+4. `cd ref-docs`
+5. `npm install`
+
+Manual fix required here due to historical issue in the gh-pages branch. In node_modules/gift/lib/commit.js file change the method to the following.
+
+``` javascript
+Commit.actor = function(line) {
       var actor, epoch, m, ref1;
       ref1 = /^.+? (.*) (\d+) .*$/.exec(line);
       if(ref1 !== undefined && ref1 !== null && ref1.length > 0) {
         m = ref1[0], actor = ref1[1], epoch = ref1[2];
       } else {
-        actor="..."; (your github user. e.g. User Muser <user@organization.com>)
-        epoch="1518471247"; (magic number)
+        actor="REPLACE WITH YOUR GITHUB USER NAME, IE user";
+        epoch="1518471247"; //(magic number)
       }
       return [Actor.from_string(actor), new Date(1000 * +epoch)];
     };
 ```
 
-4. `gulp publish`
+Initial publishing calls
+
+1. Go back to the root of the ref-docs repo and call `gulp publish:ref-docs`
+    - Once this call is finished executing, you should be able to see this ref-docs javadoc [link](http://azure.github.io/ref-docs/java/) updated
+    - Sometimes because of your browser cache you won't see the update, if not, try opening it in incognito
+2. `gulp publish:sdk`
+    - Once this call is finished executing, you should be able to see this azure-sdk-for-java javadoc [link](http://azure.github.io/azure-sdk-for-java/) updated
+    - Sometimes because of your browser cache you won't see the update, if not, try opening it in incognito
+
+Go to azure/java/azure-sdk from the root of the ref-docs repo
+
+1. `npm install`
+
+Manual fix required here due to historical issue in the gh-pages branch. In node_modules/gift/lib/commit.js file change the method to the following.
+
+``` javascript
+Commit.actor = function(line) {
+      var actor, epoch, m, ref1;
+      ref1 = /^.+? (.*) (\d+) .*$/.exec(line);
+      if(ref1 !== undefined && ref1 !== null && ref1.length > 0) {
+        m = ref1[0], actor = ref1[1], epoch = ref1[2];
+      } else {
+        actor="REPLACE WITH YOUR GITHUB USER NAME, IE user";
+        epoch="1518471247"; //(magic number)
+      }
+      return [Actor.from_string(actor), new Date(1000 * +epoch)];
+    };
+```
+
+Final publishing call from azure/java/azure-sdk.
+
+1. `gulp publish`
+    - Once this call is finished executing, you should be able to see this azure-libraries-for-java javadoc [link](https://azure.github.io/azure-libraries-for-java/) updated.
+    - Sometimes because of your browser cache you won't see the update, if not, try opening it in incognito
