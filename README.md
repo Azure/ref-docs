@@ -20,7 +20,7 @@ The project expects the collection of repos to be setup with `repo init -u https
 On the main Github ref-docs repo
 
 1. Make sure you update the version [here](https://github.com/Azure/ref-docs/blob/master/default.xml#L8) to your current release version
-  i. NOTE: this ***has*** to be done both on the main Github repo and locally
+  i. NOTE: this ***has*** to be done on the main Github repo.
 
 In PowerShell
 
