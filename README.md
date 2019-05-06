@@ -27,10 +27,11 @@ In PowerShell
 1. `docker create -t azureclidev.azurecr.io/azuresdk-javadoc`
 2. `docker container ls -a`
 3. From the previous command, get the container id that correspons to the javadoc image you just created.
+4. `docker container start {container id you just copied}`
 
 Then open a cmd terminal
 
-1. `docker container start {container id you just copied}`
+1. `docker attach {container id you just copied}`
 
 Now you wil be in the docker image environment.
 
