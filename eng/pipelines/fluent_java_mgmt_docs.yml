@@ -1,0 +1,45 @@
+trigger: none #this is not a CI, the pipeline will be triggered manually
+
+
+jobs:
+  - job: 'Publish API docs for the fluent management java SDK'
+  
+    steps:
+      - powershell: |
+          copy eng/repo-docs/index.html $(Build.ArtifactStagingDirectory)
+        displayName: 'Copy index to artifact staging'
+
+      - task: Npm@1
+        displayName: 'npm install at root'
+        inputs:
+          command: 'install'
+          
+      - task: gulp@1
+        displayName: 'gulp publish:ref-docs at root'
+        inputs:
+          targets: 'publish:ref-docs'
+          
+      - task: gulp@1
+        displayName: 'gulp publish:sdk at root'
+        inputs:
+          targets: 'publish:sdk'
+          
+      - task: Npm@1
+        displayName: 'npm install at azure/java/azure-sdk'
+        inputs:
+          workingDir: 'azure/java/azure-sdk'
+          command: 'install'
+          
+      - task: gulp@1
+        displayName: 'gulp publish:ref-docs at azure/java/azure-sdk'
+        inputs:
+          workingDirectory: 'azure/java/azure-sdk'
+          targets: 'publish'
+
+      - task: PublishPipelineArtifact@0
+        condition: succeededOrFailed()
+        displayName: 'Publish reports artifact'
+        inputs:
+          artifactName: track1reports
+          targetPath: $(Build.ArtifactStagingDirectory)/data
+
