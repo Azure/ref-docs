@@ -5,10 +5,6 @@ jobs:
   - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
   
     steps:
-      - powershell: |
-          copy eng/repo-docs/index.html $(Build.ArtifactStagingDirectory)
-        displayName: 'Copy index to artifact staging'
-
       - task: Npm@1
         displayName: 'npm install at root'
         inputs:
