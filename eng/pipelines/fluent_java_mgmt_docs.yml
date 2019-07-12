@@ -2,7 +2,7 @@ trigger: none #this is not a CI, the pipeline will be triggered manually
 
 
 jobs:
-  - job: 'Publish API docs for the fluent management java SDK'
+  - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
   
     steps:
       - powershell: |
