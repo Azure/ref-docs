@@ -11,8 +11,8 @@ gulp.task('clean', function(){
 });
 
 /// Repo initialiazation, syncronization and cleanup
-gulp.task('init', shell.task('repo init -u https://github.com/azure/ref-docs'));
-gulp.task('sync', ['init'], shell.task('repo sync --no-tags -c'));
+gulp.task('init', shell.task('eng/pipelines/scripts/repo init -u https://github.com/azure/ref-docs'));
+gulp.task('sync', ['init'], shell.task('eng/pipelines/scripts/repo sync --no-tags -c'));
 
 /// Javadoc generation and publication
 gulp.task('java:pom', ['sync'], function(){
