@@ -12,6 +12,9 @@ jobs:
           
       - script: 'chmod 775 eng/pipelines/scripts/repo'
         displayName: 'change exec permissions on repo script'
+        
+      - script: 'cp  eng/pipelines/utils/commit.js node_modules/gift/lib/commit.js'
+        displayName: 'copy over fixed commit.js file'
           
       - task: gulp@1
         displayName: 'gulp publish:ref-docs at root'
