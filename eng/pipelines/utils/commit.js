@@ -142,8 +142,14 @@
 
     Commit.actor = function(line) {
       var actor, epoch, m, ref1;
-      ref1 = /^.+? (.*) (\d+) .*$/.exec(line), m = ref1[0], actor = ref1[1], epoch = ref1[2];
-      return [Actor.from_string(actor), new Date(1000 * +epoch)];
+      ref1 = /^.+? (.*) (\d+) .*$/.exec(line);
+      if(ref1 !== undefined && ref1 !== null && ref1.length > 0) {
+        m = ref1[0], actor = ref1[1], epoch = ref1[2];
+      } else {
+        actor=null;
+        epoch="1518471247"; //(magic number)
+      }
+	  return [Actor.from_string(actor), new Date(1000 * +epoch)];
     };
 
     return Commit;
