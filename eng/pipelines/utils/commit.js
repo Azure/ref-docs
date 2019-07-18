@@ -146,7 +146,7 @@
       if(ref1 !== undefined && ref1 !== null && ref1.length > 0) {
         m = ref1[0], actor = ref1[1], epoch = ref1[2];
       } else {
-        actor=null;
+        actor="azuresdkci";
         epoch="1518471247"; //(magic number)
       }
 	  return [Actor.from_string(actor), new Date(1000 * +epoch)];
