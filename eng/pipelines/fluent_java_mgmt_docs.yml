@@ -21,7 +21,7 @@ jobs:
       - script: 'cp  eng/pipelines/utils/commit.js node_modules/gift/lib/commit.js'
         displayName: 'copy over fixed commit.js file'
         
-      - script: 'git config user.email "azuresdkci@users.noreply.github.com";git config user.name "azuresdkci"'
+      - script: 'git config --global user.email "azuresdkci@users.noreply.github.com";git config --global user.name "azuresdkci"'
         displayName: 'set git user name and email'
           
       - task: gulp@1
