@@ -1,7 +1,7 @@
 trigger: none #this is not a CI, the pipeline will be triggered manually
 
 variables:
-- group: 'KV-AzureSDK Secrets'
+- group: 'GitHub Release Variables'
 - name: 'GH_TOKEN'
   value: "$(Github-azuresdkci-personalaccesstoken)"
  
