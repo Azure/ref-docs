@@ -1,5 +1,10 @@
 trigger: none #this is not a CI, the pipeline will be triggered manually
 
+variables:
+- group: 'KV-AzureSDK Secrets'
+- name: 'GH_TOKEN'
+  value: "$(Github-azuresdkci-personalaccesstoken)"
+ 
 
 jobs:
   - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
@@ -15,6 +20,9 @@ jobs:
         
       - script: 'cp  eng/pipelines/utils/commit.js node_modules/gift/lib/commit.js'
         displayName: 'copy over fixed commit.js file'
+        
+      - script: 'git config user.email "azuresdkci@users.noreply.github.com";git config user.name "azuresdkci"'
+        displayName: 'set git user name and email'
           
       - task: gulp@1
         displayName: 'gulp publish:ref-docs at root'
