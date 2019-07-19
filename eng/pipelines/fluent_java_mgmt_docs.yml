@@ -27,16 +27,9 @@ jobs:
       - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:ref-docs;'
         displayName: 'gulp publish:ref-docs at root after setting env var for GH_TOKEN'
           
-      #- task: gulp@1
-      #  displayName: 'gulp publish:ref-docs at root'
-      #  inputs:
-      #    targets: 'publish:ref-docs'
-          
-      - task: gulp@1
-        displayName: 'gulp publish:sdk at root'
-        inputs:
-          targets: 'publish:sdk'
-          
+      - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:sdk;'
+        displayName: 'gulp publish:sdk at root after setting env var for GH_TOKEN'
+
       - task: Npm@1
         displayName: 'npm install at azure/java/azure-sdk'
         inputs:
