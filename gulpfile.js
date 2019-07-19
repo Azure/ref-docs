@@ -28,8 +28,10 @@ gulp.task('stage', ['java:stage']);
 gulp.task('publish:ref-docs', ['stage'], function(){
     var options = {};
     if(process.env.GH_TOKEN){
-        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/azure/ref-docs.git'  
+		console.log("Got GH_TOKEN");
+        options.remoteUrl = 'https://' + process.env.GH_TOKEN + '@github.com/azure/ref-docs.git';
     }
+	console.log(options.remoteUrl);
     return gulp.src('./dist/**/*').pipe(gulpif(!argv.dryrun, ghPages(options)));
 });
 
