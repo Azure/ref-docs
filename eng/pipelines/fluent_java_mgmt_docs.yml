@@ -41,11 +41,4 @@ jobs:
         
       - script: 'cd azure/java/azure-sdk;export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish;'
         displayName: 'gulp publish at azure/java/azure-sdk after setting env var for GH_TOKEN'
-          
-      - task: PublishPipelineArtifact@0
-        condition: succeededOrFailed()
-        displayName: 'Publish reports artifact'
-        inputs:
-          artifactName: track1reports
-          targetPath: $(Build.ArtifactStagingDirectory)/data
 
