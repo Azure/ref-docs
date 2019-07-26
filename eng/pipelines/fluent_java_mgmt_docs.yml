@@ -36,12 +36,12 @@ jobs:
           workingDir: 'azure/java/azure-sdk'
           command: 'install'
           
-      - task: gulp@1
-        displayName: 'gulp publish:ref-docs at azure/java/azure-sdk'
-        inputs:
-          workingDirectory: 'azure/java/azure-sdk'
-          targets: 'publish'
-
+      - script: 'cp  eng/pipelines/utils/commit.js azure/java/azure-sdk/node_modules/gift/lib/commit.js'
+        displayName: 'copy over fixed commit.js file'
+        
+      - script: 'cd azure/java/azure-sdk;export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish;'
+        displayName: 'gulp publish at azure/java/azure-sdk after setting env var for GH_TOKEN'
+          
       - task: PublishPipelineArtifact@0
         condition: succeededOrFailed()
         displayName: 'Publish reports artifact'
