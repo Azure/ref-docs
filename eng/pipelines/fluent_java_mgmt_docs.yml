@@ -1,6 +1,4 @@
 trigger: none #this is not a CI, the pipeline will be triggered manually
-variables:
-  GitToken: $(Github-azuresdkci-personalaccesstoken)
 
 jobs:
   - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
@@ -20,10 +18,8 @@ jobs:
       - script: 'git config --global user.email "azuresdkci@users.noreply.github.com";git config --global user.name "azuresdkci"'
         displayName: 'set git user name and email'
         
-      - script: 'gulp publish:ref-docs;'
+      - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:ref-docs;'
         displayName: 'gulp publish:ref-docs at root after setting env var for GH_TOKEN'
-        env:
-          GH_TOKEN: $(GitToken)
           
       - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:sdk;'
         displayName: 'gulp publish:sdk at root after setting env var for GH_TOKEN'
