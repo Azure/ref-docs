@@ -26,8 +26,10 @@ jobs:
         env:
           GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
           
-      - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:sdk;'
+      - script: 'gulp publish:sdk;'
         displayName: 'gulp publish:sdk at root after setting env var for GH_TOKEN'
+        env:
+          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
 
       - task: Npm@1
         displayName: 'npm install at azure/java/azure-sdk'
@@ -38,6 +40,8 @@ jobs:
       - script: 'cp  eng/pipelines/utils/commit.js azure/java/azure-sdk/node_modules/gift/lib/commit.js'
         displayName: 'copy over fixed commit.js file'
         
-      - script: 'cd azure/java/azure-sdk;export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish;'
+      - script: 'cd azure/java/azure-sdk;gulp publish;'
         displayName: 'gulp publish at azure/java/azure-sdk after setting env var for GH_TOKEN'
+        env:
+          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
 
