@@ -1,4 +1,6 @@
 trigger: none #this is not a CI, the pipeline will be triggered manually
+variables:
+  GitToken: $(Github-azuresdkci-personalaccesstoken)
 
 jobs:
   - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
@@ -21,8 +23,7 @@ jobs:
       - script: 'gulp publish:ref-docs;'
         displayName: 'gulp publish:ref-docs at root after setting env var for GH_TOKEN'
         env:
-          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
-          
+          GH_TOKEN: $(GitToken)
           
       - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:sdk;'
         displayName: 'gulp publish:sdk at root after setting env var for GH_TOKEN'
