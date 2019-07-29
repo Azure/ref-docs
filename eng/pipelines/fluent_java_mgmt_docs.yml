@@ -21,7 +21,7 @@ jobs:
       - script: 'gulp publish:ref-docs;'
         displayName: 'gulp publish:ref-docs at root after setting env var for GH_TOKEN'
         env:
-        GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
+          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
           
           
       - script: 'export GH_TOKEN=$(Github-azuresdkci-personalaccesstoken);gulp publish:sdk;'
