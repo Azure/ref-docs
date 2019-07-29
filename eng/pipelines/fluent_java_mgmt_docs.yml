@@ -1,5 +1,10 @@
 trigger: none #this is not a CI, the pipeline will be triggered manually
 
+variables: 
+- group: 'GitHub Release Variables' 
+- name: 'GH_TOKEN' 
+  value: "$(Github-azuresdkci-personalaccesstoken)"
+  
 jobs:
   - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
   
