@@ -4,7 +4,25 @@ This repo generates and publishes documentation for azure repositories. It's cur
 
 The project expects the collection of repos to be setup with `repo init -u https://github.com/azure/ref-docs`.
 
-## Required setup
+
+## Current publishing steps
+1. Make sure you update the version [here](https://github.com/Azure/ref-docs/blob/master/default.xml#L8) to your current release version
+  i. NOTE: this ***has*** to be done on the main Github repo.
+2. Once the above change is merged into master, run the following ADO pipeline : https://dev.azure.com/azure-sdk/internal/_build?definitionId=703
+  i. Run it on the branch "master"
+
+### Validate that the docs got updates
+Once the pipeline completes, validate that the ref docs are updates at the following locations:
+* http://azure.github.io/ref-docs/java/
+* http://azure.github.io/azure-sdk-for-java
+* https://azure.github.io/azure-libraries-for-java
+
+#### Note
+- Sometimes because of your browser cache you won't see the update, if not, try opening it in incognito
+
+
+## Legacy publishing steps
+### Required setup
 
 - Make sure you have Docker installed
   1. If you are having trouble running the docker command after installation, one problem could be that visualization is not enabled. If so, restart your computer and upon rebooting, [enter BIOS setup](https://www.makeuseof.com/tag/enter-bios-computer/) and enable visualization
@@ -15,7 +33,7 @@ The project expects the collection of repos to be setup with `repo init -u https
   1. `az account set --subscription "Azure SDK Infrastructure"`
   2. `az acr login --name azureclidev`
 
-## Publishing steps using a docker image (on Windows)
+### Publishing steps using a docker image (on Windows)
 
 On the main Github ref-docs repo
 
