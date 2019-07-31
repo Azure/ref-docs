@@ -1,0 +1,44 @@
+trigger: none #this is not a CI, the pipeline will be triggered manually
+  
+jobs:
+  - job: 'Publish_API_docs_for_the_fluent_management_java_SDK'
+  
+    steps:
+      - task: Npm@1
+        displayName: 'npm install at root'
+        inputs:
+          command: 'install'
+          
+      - script: 'chmod 775 eng/pipelines/scripts/repo'
+        displayName: 'change exec permissions on repo script'
+        
+      - script: 'cp  eng/pipelines/utils/commit.js node_modules/gift/lib/commit.js'
+        displayName: 'copy over fixed commit.js file'
+        
+      - script: 'git config --global user.email "azuresdkci@users.noreply.github.com";git config --global user.name "azuresdkci"'
+        displayName: 'set git user name and email'
+        
+      - script: 'gulp publish:ref-docs;'
+        displayName: 'gulp publish:ref-docs at root after setting env var for GH_TOKEN'
+        env:
+          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
+          
+      - script: 'gulp publish:sdk;'
+        displayName: 'gulp publish:sdk at root after setting env var for GH_TOKEN'
+        env:
+          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
+
+      - task: Npm@1
+        displayName: 'npm install at azure/java/azure-sdk'
+        inputs:
+          workingDir: 'azure/java/azure-sdk'
+          command: 'install'
+          
+      - script: 'cp  eng/pipelines/utils/commit.js azure/java/azure-sdk/node_modules/gift/lib/commit.js'
+        displayName: 'copy over fixed commit.js file'
+        
+      - script: 'cd azure/java/azure-sdk;gulp publish;'
+        displayName: 'gulp publish at azure/java/azure-sdk after setting env var for GH_TOKEN'
+        env:
+          GH_TOKEN: $(Github-azuresdkci-personalaccesstoken)
+

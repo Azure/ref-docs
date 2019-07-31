@@ -49,6 +49,9 @@
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>3.0.0</version>
           <configuration>
+		    <additionalparam>-Xdoclint:none</additionalparam>
+            <additionalOptions>-Xdoclint:none</additionalOptions>
+            <additionalJOption>-Xdoclint:none</additionalJOption>
             <doctitle>Microsoft Azure Libraries for Java</doctitle>
             <windowtitle>Microsoft Azure Libraries for Java</windowtitle>            
             <additionalparam>-Xdoclint:none</additionalparam>
