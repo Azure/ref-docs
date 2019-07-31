@@ -6,10 +6,10 @@ The project expects the collection of repos to be setup with `repo init -u https
 
 
 ## Current publishing steps
-1. Make sure you update the version [here](https://github.com/Azure/ref-docs/blob/master/default.xml#L8) to your current release version
-  i. NOTE: this ***has*** to be done on the main Github repo.
-2. Once the above change is merged into master, run the following ADO pipeline : https://dev.azure.com/azure-sdk/internal/_build?definitionId=703
-  i. Run it on the branch "master"
+* Make sure you update the version [here](https://github.com/Azure/ref-docs/blob/master/default.xml#L8) to your current release version
+  * NOTE: this ***has*** to be done on the main Github repo.
+* Once the above change is merged into master, run the following ADO pipeline : https://dev.azure.com/azure-sdk/internal/_build?definitionId=703
+  * Run it on the branch "master"
 
 ### Validate that the docs got updates
 Once the pipeline completes, validate that the ref docs are updates at the following locations:
